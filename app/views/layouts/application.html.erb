@@ -7,14 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	
+
+
 	<div id="container">
 		<header>
 			<h1><%= link_to "Academy Air", root_url %></h1>
 			<nav>
 				<ul>
 					<% if session[:uid].present? %>
-						<li><%= link_to "View My Profile", '#' %></li>
+						<li><%= link_to "View My Profile", user_url(current_user) %></li>
 						<li><%= link_to "Sign Out", sign_out_url %></li>
 					<% else %>
 						<li><%= link_to "Sign Up!", new_user_url %></li>
@@ -24,7 +25,7 @@
 				</ul>
 			</nav>
 			<% if session[:uid].present? %>
-				<p>Hello, <%= User.find_by_id(session[:uid]).first %></p>
+				<p>Hello, <%= current_user.first %></p>
 			<% end %>
 		</header>
 
