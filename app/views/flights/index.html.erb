@@ -23,9 +23,20 @@
         <td><%= flight.arrival_airport_code %></td>
         <td><%#= flight.arrives_at %></td>
         <td><%= flight.seats %></td>
-        <td><%= flight.distance %></td>
+        <td>
+          <%# mc = MileageCalculator.new(flight.departure_airport_code, flight.arrival_airport_code) %>
+          <%#= mc.miles %>
+          <%= flight.distance %>
+        </td>
       </tr>
     <% end %>
     
   </tbody>
 </table>
+
+
+
+
+
+
+

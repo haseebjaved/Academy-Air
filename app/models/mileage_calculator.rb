@@ -1,7 +1,9 @@
 class MileageCalculator
   
   CHART = { "ORD-SFO" => 1846, 
+            'ORD-SEA' => 1721, 
             'ORD-BOS' => 866, 
+            'ORD-LAX' => 1744, 
             'JFK-BOS' => 186, 
             'JFK-LAX' => 2475 
           }
