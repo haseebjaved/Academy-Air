@@ -16,7 +16,7 @@
   <tbody>
     <% @flights.each do |flight| %>
       <tr>
-        <td><button>Book Now</button></td>
+        <td><%=link_to "Book Now", reservation_url(flight.id)%></td>
         <td><%= flight.number %></td>
         <td><%= flight.departure_airport_code %></td>
         <td><%= flight.departs_at.strftime("%l:%M %P") %></td>

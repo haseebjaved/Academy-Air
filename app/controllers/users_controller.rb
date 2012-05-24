@@ -51,6 +51,7 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+     session[:uid] = @user.id
   end
 
   # PUT /users/1

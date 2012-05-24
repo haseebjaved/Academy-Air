@@ -3,6 +3,8 @@ class Flight < ActiveRecord::Base
   
   before_save :calculate_distance
   
+  has_many :reservations
+  has_many :users, through: :reservations
   
   def calculate_distance
     mc = MileageCalculator.new(self.departure_airport_code, self.arrival_airport_code)

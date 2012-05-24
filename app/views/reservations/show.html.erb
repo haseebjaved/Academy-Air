@@ -1,0 +1,27 @@
+<h1>Confirm Reservation</h1><br>
+
+ <% @x = Flight.find(params[:id])%>
+
+<%if @x.seats > 0%>
+
+<p><%=@x.seats%> seats remaining, Book NOW!</p><br>
+
+<p>Flight Number: <%=@x.number%></p>
+<p>Departure Airport: <%=@x.departure_airport_code%>
+<p>Departure Time: <%=@x.departs_at.strftime("%l:%M %P")%></p>
+<p>Cost: $70 only!</p><br>
+
+<p>Enter 16-digit Visa number: 
+
+<%=form_for @reservation do |f| %>
+	<%= f.label :flight_id%>
+	<%= f.hidden_field :flight_id, value: @x.id%>
+	<%= f.label :user_id%>
+	<%= f.hidden_field :user_id, value: session[:uid]%>
+	<%= f.label :card%>
+	<%= f.text_field :card, placeholder: "Enter Visa # here"%>
+	<%= f.submit%>
+<%end%> 
+
+	
+	<%end%>

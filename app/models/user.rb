@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
                   :password, :password_confirmation
   
   has_secure_password
+  has_many :reservations
+  has_many :flights, through: :reservations
   
   before_create :start_miles_at_zero
   
